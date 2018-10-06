@@ -1,0 +1,28 @@
+
+
+#container {
+    margin:20px;
+    width:500px;
+    height:500px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#container2 {
+    margin:20px;
+    width:500px;
+    height:500px;
+    border: 1px solid black;
+    line-height: 25px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+h1, h2 {
+    color:red;
+}
+
+.img {
+    width:150px;
+    height:150px;
+}
