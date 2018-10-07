@@ -26,3 +26,8 @@ h1, h2 {
     width:150px;
     height:150px;
 }
+
+button {
+    width: 80px;
+    height: 20px;
+}

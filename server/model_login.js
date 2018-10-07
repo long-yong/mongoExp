@@ -1,24 +1,25 @@
-// models.js
+// model_login.js
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/quote_demo', {useNewUrlParser:true},
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser:true},
                  (errs)=>errs ? console.log(errs):console.log('db is good to go'));
 
-var QuoteSchema = new mongoose.Schema({
+var LoginSchema = new mongoose.Schema({
 
-    name:{
+    name: {
         type:String,
         required:true,
         minlength:2
     },
 
-    quote:{
+    pwd:{
         type:String,
         required:true,
         minlength:2
     },
 
-}, {timestamps:true} );
+}, {timestamps:false} );
 
-module.exports = mongoose.model('Quote', QuoteSchema);
+module.exports = mongoose.model('Login', LoginSchema);
+

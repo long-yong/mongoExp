@@ -4,18 +4,26 @@ var express = require("express");
 var session = require('express-session');
 const bp = require('body-parser');
 const controller = require('./controller');
+const flash = require('express-flash');
 
 module.exports = function(app) {
-    app.use(session({secret:'keyboardkitteh12345yong', resave:false, saveUninitialized:true, cookie:{maxAge:60000}}));
-    app.use(express.static(__dirname + "/static"));
     app.set('views', __dirname + '/views');
     app.set('view engine', "ejs");
+    app.use(express.static(__dirname + "/static"));
     app.use(bp.urlencoded({extended:true}));
+    app.use(session({secret:'keyboardkitteeyong12345', resave:false, 
+            saveUninitialized:true, cookie:{maxAge:60000}}));
+    app.use(flash());
 
     // routes
-    app.get ('/',           controller.index);
-    app.get ('/quotes',     controller.getAll);
-    app.post('/quotes',     controller.createQuote);
+    app.get ('/',          controller.root);
+
+    app.get ('/add',       controller.add);
+    app.post('/add',       controller.add_);
+
+    app.get ('/detail',    controller.detail);
+
+    app.get('/clear',      controller.clear);
 
     return app;
 }

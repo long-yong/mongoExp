@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <title>Quotes</title>
+</head>
+
+<body><div id="container2">
+
+    <h2>all quotes:</h2>
+
+    <% for(let quote of allQuotes) { %> 
+        <p><%=quote.name%> , <%=quote.quote%></p>
+    <% } %>
+
+    <a href="/add"><button>Go Back</button></a>
+
+</div></body>
+</html>
