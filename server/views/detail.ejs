@@ -10,13 +10,13 @@
 
 <body><div id="container2">
 
-    <h2>all quotes:</h2>
+    <h2 class="inline">Here are the awesome quotes:</h2> <div class="wide40"></div> 
+    <a href="/add"><button>Go Back</button></a>
 
     <% for(let quote of allQuotes) { %> 
-        <p><%=quote.name%> , <%=quote.quote%></p>
+        <p>"<%=quote.name%>"</p>
+        <p><div class="wide30"></div>-<%=quote.quote%></p>
     <% } %>
-
-    <a href="/add"><button>Go Back</button></a>
 
 </div></body>
 </html>
