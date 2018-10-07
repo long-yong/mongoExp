@@ -16,12 +16,11 @@ module.exports = function(app) {
     app.use(flash());
 
     // routes
-    app.get ('/',          controller.root);
+    app.get ('/',          controller.index);
+    app.get ('/index',     controller.index);
 
     app.get ('/add',       controller.add);
     app.post('/add',       controller.add_);
-
-    app.get ('/detail',    controller.detail);
 
     app.get('/clear',      controller.clear);
 

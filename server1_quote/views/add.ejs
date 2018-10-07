@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <title>Index</title>
+</head>
+
+<body>
+<div id="container2">
+
+    <h2><%=logger%>, welcome to quoting dojo</h2>
+
+    <% if(messages.errs) { %>
+        <% for (let err of messages.errs) { %>
+                <%= err %><br>
+        <% } %>
+    <% } %>
+
+    <table>
+
+        <form action="/add" method="POST"> 
+
+        <tr>
+            <td>Your name: </td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>Your Quote: </td>  
+            <td><input type="text" name="quote"></td>
+        </tr>
+
+        <tr>
+            <td></td> 
+            <td><button type="submit">Add</button></td>
+        </tr>
+
+        </form>
+        
+        <tr>
+            <td></td> 
+            <td><a href="/index"><button>Index</button></a></td>
+        </tr>
+
+        <tr>
+            <td></td> 
+            <td><a href="/clear"><button>Clear</button></a> </td>
+        </tr>
+    
+    </table>   
+
+</div>
+</body>
+
+</html>

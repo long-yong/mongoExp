@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" content-type="text/css" href="/css/style.css">
-    <title>Quotes</title>
+    <title>Animals</title>
 </head>
 
 <body><div id="container2">
 
-    <h2 class="inline">Here are the awesome quotes:</h2> <div class="wide40"></div> 
-    <a href="/add"><button>Go Back</button></a>
+    <h2 class="inline">Here are awesome animals:</h2> <div class="wide20"></div> 
+    <a href="/add"><button>New animal</button></a>
 
-    <% for(let quote of allQuotes) { %> 
-        <p>"<%=quote.name%>"</p>
-        <p><div class="wide30"></div>-<%=quote.quote%></p>
+    <% for(let animal of allAnimals) { %> 
+        <p><%=animal.name%></p>
+        <p><%=animal.intro%></p>
     <% } %>
 
 </div></body>

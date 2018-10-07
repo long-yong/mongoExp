@@ -1,4 +1,4 @@
-// model_quote.js
+// model_Quote.js
 
 const mongoose = require('mongoose');
 
@@ -19,7 +19,7 @@ var QuoteSchema = new mongoose.Schema({
         minlength:2
     },
 
-}, {timestamps:true} );     
+}, {timestamps:true} ); 
 
 module.exports = mongoose.model('Quote', QuoteSchema);
 

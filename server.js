@@ -1,7 +1,9 @@
 
 const express = require('express');
 
-const routes = require('./server/routes');
+// const routes = require('./server1_quote/routes');
+const routes = require('./server2_animal/routes');
+
 
 const app = routes(express());
 

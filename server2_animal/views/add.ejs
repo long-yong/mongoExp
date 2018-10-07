@@ -11,7 +11,7 @@
 <body>
 <div id="container2">
 
-    <h2><%=logger%>, welcome to quoting dojo</h2>
+    <h2>welcome to quoting dojo</h2>
 
     <% if(messages.errs) { %>
         <% for (let err of messages.errs) { %>
@@ -24,13 +24,13 @@
         <form action="/add" method="POST"> 
 
         <tr>
-            <td>Your name: </td>
+            <td>Name: </td>
             <td><input type="text" name="name"></td>
         </tr>
 
         <tr>
-            <td>Your Quote: </td>  
-            <td><input type="text" name="quote"></td>
+            <td>Intro: </td>  
+            <td><input type="text" name="intro"></td>
         </tr>
 
         <tr>
@@ -42,7 +42,7 @@
         
         <tr>
             <td></td> 
-            <td><a href="/detail"><button>Detail</button></a></td>
+            <td><a href="/index"><button>Index</button></a></td>
         </tr>
 
         <tr>

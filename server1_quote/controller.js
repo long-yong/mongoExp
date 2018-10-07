@@ -18,8 +18,10 @@ function get_logger(req,res) {
 
 module.exports = {
 
-    root: (req,res)=>{
-        res.redirect('/add');
+    index:(req,res)=>{
+        Quote.find()
+            .then ((data)=>{res.render('index', {allQuotes:data})})
+            .catch((errs)=>{res.render('index', {errors:errs})})
     },
 
     add: (req,res)=>{
@@ -39,17 +41,11 @@ module.exports = {
             }
             res.redirect('/add');
         });
-    },
-
-    detail:(req,res)=>{
-        Quote.find()
-            .then ((data)=>{res.render('detail', {allQuotes:data})})
-            .catch((errs)=>{res.render('detail', {errors:errs})})
-    },
+    },    
 
     clear:(req,res)=>{
         Quote.deleteMany({},(err,res)=>show(err));
-        res.redirect('/detail');
+        res.redirect('/index');
     },
     
 };
