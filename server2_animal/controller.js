@@ -19,7 +19,6 @@ module.exports = {
     },
 
     add_:(req,res)=>{
-        show('form.name = ' + req.body.name);
         Animal.create(req.body,function(err) {
             if(err) {
                 for(var key in err.errors) {
@@ -28,10 +27,33 @@ module.exports = {
             } 
             res.redirect('/add');
         });
-    },    
+    },   
+    
+    edit: (req,res)=>{
+        Animal.findById(req.params.id, (err,data)=>{
+            res.render('edit',{obj:data});
+        });
+    },
+
+    edit_:(req,res)=>{
+        Animal.update({_id:req.body.id},req.body,function(err) {
+            if(err) {
+                for(var key in err.errors) {
+                    req.flash('errs',err.errors[key].message);
+                }
+            }
+            res.redirect('/edit/'+req.body.id);
+        });
+    },
+
+    delete:(req,res)=>{
+        console.log(req.params.id);
+        Animal.deleteOne({_id:req.params.id},(err)=>{});
+        res.redirect('/index');
+    },
 
     clear:(req,res)=>{
-        Animal.deleteMany({},(err,res)=>show(err));
+        Animal.deleteMany({},(err,res)=>{});
         res.redirect('/index');
     },
     

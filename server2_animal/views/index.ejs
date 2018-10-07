@@ -14,8 +14,9 @@
     <a href="/add"><button>New animal</button></a>
 
     <% for(let animal of allAnimals) { %> 
-        <p><%=animal.name%></p>
-        <p><%=animal.intro%></p>
+        
+        <a href="/edit/<%=animal._id%>"><img class="img" src="/images/<%=animal.name%>.jpg"/></a>
+
     <% } %>
 
 </div></body>

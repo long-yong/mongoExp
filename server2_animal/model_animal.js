@@ -9,14 +9,12 @@ var AnimalSchema = new mongoose.Schema({
 
     name:{
         type:String,
-        required:true,
-        minlength:2
     },
 
     intro:{
         type:String,
         required:true,
-        minlength:2
+        minlength:5
     },
 
 }, {timestamps:true} ); 

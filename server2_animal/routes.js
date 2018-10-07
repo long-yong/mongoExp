@@ -22,6 +22,10 @@ module.exports = function(app) {
     app.get ('/add',       controller.add);
     app.post('/add',       controller.add_);
 
+    app.get ('/edit/:id',  controller.edit);
+    app.post('/edit',      controller.edit_);
+
+    app.get('/delete/:id', controller.delete);
     app.get('/clear',      controller.clear);
 
     return app;

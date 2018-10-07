@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" content-type="text/css" href="/css/style.css">
     <title>Index</title>
 </head>
@@ -11,7 +12,7 @@
 <body>
 <div id="container2">
 
-    <h2>welcome to animals world</h2>
+    <h2>Edit</h2>
 
     <% if(messages.errs) { %>
         <% for (let err of messages.errs) { %>
@@ -20,12 +21,11 @@
     <% } %>
 
     <table>
-
-        <form action="/add" method="POST"> 
-
+        <form action="/edit" method="POST">
+            <input class='hide' name="id" type='text' value=<%=obj._id%> />
         <tr>
             <td>Name: </td>
-            <td><select name="name">
+            <td><select id="name" name="name">
                 <option value="tiger">Tiger</option>
                 <option value="whale">Whale</option>
                 <option value="butterfly">Butter Fly</option>
@@ -38,30 +38,38 @@
         </tr>
 
         <tr>
-            <td>Intro: </td>
-            <td><textarea name="intro" rows="3" cols="40">A butiful animal</textarea></td>
+            <td>Intro:</td>
+            <td><textarea name="intro" rows="3" cols="40"><%=obj.intro%></textarea></td>
         </tr>
 
         <tr>
             <td></td>
-            <td><button type="submit">Add</button></td>
+            <td><button type="submit">Update</button></td>
         </tr>
 
         </form>
+
+        <tr>
+            <td></td>
+            <td><a href="/index"><button>Index</button></a> </td>
+        </tr>
         
         <tr>
             <td></td> 
-            <td><a href="/index"><button>Index</button></a></td>
+            <td><a href="/delete/<%=obj._id%>"><button>Delete</button></a></td>
         </tr>
-
-        <tr>
-            <td></td> 
-            <td><a href="/clear"><button>Clear</button></a> </td>
-        </tr>
+        
     
     </table>   
 
 </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#name option[value=<%=obj.name%>]").attr("selected", "selected");
+        });
+    </script>
+
 </body>
 
 </html>
