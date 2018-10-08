@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <title>Index</title>
+</head>
+
+<body>
+<div id="container3">
+
+    <h2 class='inline'>Message Board</h2>&nbsp;&nbsp;&nbsp;<div class='wide250'></div> 
+    <a href="/clear"><button>Clear</button></a><br>
+
+    <% if(messages.errs) { %>
+        <% for (let err of messages.errs) { %>
+                <%= err %><br>
+        <% } %><br>
+    <% } %>
+
+    <form action="/addmessage" method="POST"> 
+        <input class='w1' name='name'    placeholder="Name"/>
+        <input class='w2' name='message' placeholder="Message"/>
+        <button>Submit</button>    
+    </form> <br>
+
+    <% for(let message of allMessages) { %>
+        
+        <%=message.message%> - <%=message.name%> <br>
+
+        <% for(let comment of message.comments){ %>
+            <div class='wide50'></div> <%=comment.comment%> - <%=comment.name%> <br>
+        <% } %>
+
+        <form action="/addcomment/<%=message._id%>" method="POST">
+            <input class='w1' name='name'    placeholder="Name"/>
+            <input class='w2' name='comment' placeholder="Comment"/>
+            <button>Submit</button>
+        </form><br>
+
+    <% } %>
+    
+    <br>
+</div>    
+</body>
+
+</html>

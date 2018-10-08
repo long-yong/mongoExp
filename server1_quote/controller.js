@@ -30,7 +30,6 @@ module.exports = {
     },
 
     add_:(req,res)=>{
-        show('form.name = ' + req.body.name);
         Quote.create(req.body,function(err) {
             if(err) {
                 for(var key in err.errors) {
@@ -41,7 +40,7 @@ module.exports = {
             }
             res.redirect('/add');
         });
-    },    
+    },
 
     clear:(req,res)=>{
         Quote.deleteMany({},(err,res)=>show(err));

@@ -41,3 +41,10 @@ db.students.update({},{$set:{updated_on: Date()}},true,true);
 
 db.students.find();
 
+set default select option
+<script>
+    $(document).ready(function() {
+        $("#name option[value=<%=obj.name%>]").attr("selected", "selected");
+    });
+</script>
+
