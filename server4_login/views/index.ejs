@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <title>Login</title>
+</head>
+
+<body><div id="container2">
+
+    <h2 class="inline">Login</h2> <div class="wide200"></div> 
+    <a href="/add"><button>New user</button></a> <br>
+
+    <% for(let user of allLogins) { %>
+        Name: <%=user.name%> &nbsp; Email: <%=user.email%> <br>
+    <% } %>
+
+</div></body>
+</html>

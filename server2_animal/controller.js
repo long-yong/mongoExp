@@ -1,6 +1,6 @@
 // controller.js
 
-const Animal = require('./model_animal');
+const Animal = require('./models');
 
 function show(str) {
     if(str!=null&&str!='') console.log(str); 

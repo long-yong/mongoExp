@@ -1,0 +1,50 @@
+
+use my_first_db
+
+db.createCollection('students');
+db.students.insert({name:'John',home_state:'California', lucky_number:8, birthday:{month:5,day:20,year:2010}});
+db.students.insert({name:'Mark',home_state:'New York',   lucky_number:6, birthday:{month:4,day:23,year:2011}});
+db.students.insert({name:'Mary',home_state:'Washington', lucky_number:4, birthday:{month:1,day:5,year:2011}});
+db.students.insert({name:'Sue', home_state:'Washington', lucky_number:3, birthday:{month:2,day:9,year:2010}});
+db.students.insert({name:'Rose',home_state:'Washington', lucky_number:9, birthday:{month:8,day:12,year:2010}});
+db.students.insert({name:'Joe', home_state:'California', lucky_number:3, birthday:{month:7,day:18,year:2010}});
+
+db.students.find({home_state:'California'});
+db.students.find({lucky_number:{$gt:3}});
+db.students.find({lucky_number:{$lte:10}});
+db.students.find({lucky_number:{$in:[1,2,3,4,5,6,7,8,9]}});
+db.students.update({},{$set:{interests: ['coding','brunch','MongoDB']}},true,true);
+
+db.students.update({name:'John'},{$push:{interests:'cooking'}},true,true);
+db.students.update({name:'Mark'},{$push:{interests:'climbing'}},true,true);
+db.students.update({name:'Mary'},{$push:{interests:'walking'}},false,true);
+db.students.update({name:'Rose'},{$push:{interests:'chess'}},true,true);
+db.students.update({name:'Joe'}, {$push:{interests:'ping pong'}},false,true);
+
+db.students.update({name:'John'},{$push:{interests: 'taxes'}},true,true);
+db.students.update({name:'John'},{$pull:{interests: 'taxes'}},true,true);
+
+db.students.remove({home_state:'California'});
+db.students.remove({name:'Mark'});
+
+db.students.remove({lucky_number:{$gt:5}});
+
+db.students.update({},{$set:{number_of_belts:0}},true,true);
+
+db.students.update({},{$inc:{number_of_belts:1}},true,true);
+
+db.students.update({}, {$rename : { 'number_of_belts' : 'belts_earned' }}, false, true);
+
+db.students.update({},{$unset:{'lucky_number':''}},false,true);
+
+db.students.update({},{$set:{updated_on: Date()}},true,true);
+
+db.students.find();
+
+set default select option
+<script>
+    $(document).ready(function() {
+        $("#name option[value=<%=obj.name%>]").attr("selected", "selected");
+    });
+</script>
+

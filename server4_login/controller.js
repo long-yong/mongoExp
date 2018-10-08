@@ -1,13 +1,11 @@
 // controller.js
 
-const Quote = require('./models');
-
-function show(str) {
-    if(str!=null&&str!='') console.log(str); 
-}
+const Login = require('./models');
 
 function set_logger(req,data) {
-    req.session.logger = data.name;
+    req.session.logger  = data.name;
+    req.session.user_id = data._id;
+	req.session.email   = data.email;
 }
 
 function get_logger(req,res) {
@@ -19,8 +17,8 @@ function get_logger(req,res) {
 module.exports = {
 
     index:(req,res)=>{
-        Quote.find()
-            .then ((data)=>{res.render('index', {allQuotes:data})})
+        Login.find()
+            .then ((data)=>{res.render('index', {allLogins:data})})
             .catch((errs)=>{res.render('index', {errors:errs})})
     },
 
@@ -30,7 +28,7 @@ module.exports = {
     },
 
     add_:(req,res)=>{
-        Quote.create(req.body,function(err,data) {
+        Login.create(req.body,function(err,data) {
             if(err) {
                 for(var key in err.errors) {
                     req.flash('errs',err.errors[key].message);
@@ -43,9 +41,10 @@ module.exports = {
     },
 
     clear:(req,res)=>{
-        Quote.deleteMany({},(err,res)=>{});
+        Login.deleteMany({},(err,res)=>{});
         res.redirect('/index');
     },
+    
     
 };
 
