@@ -29,8 +29,8 @@ module.exports = {
 
     index:(req,res)=>{
         Login.find()
-            .then ((data)=>{res.render('index', {allLogins:data})})
-            .catch((errs)=>{res.render('index', {errors:errs})})
+            .then((data)=>{res.render('index', {allLogins:data})})
+            .catch((err)=>{res.render('index', {errors:err})})
     },
 
     add: (req,res)=>{
@@ -62,7 +62,7 @@ module.exports = {
                     res.redirect('/add');
                 }
                 else Login.findOne({'email':req.body.email, 'password':req.body.password},(err,data) => {
-                    if(!data) req.flash('errs2','Password do not match'); 
+                    if(!data) req.flash('errs2','Password do not match');
                     else set_logger(req,data);
                     res.redirect('/add');
                 });
@@ -77,8 +77,7 @@ module.exports = {
 
     clear:(req,res)=>{
         clear_logger(req);
-        Login.deleteMany({},(err,res)=>{});
-        res.redirect('/index');
+        Login.deleteMany({},(err)=>{ res.redirect('/index'); });
     },
 
 };
