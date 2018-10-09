@@ -10,7 +10,8 @@ const express = require('express');
 // const routes = require('./server3_message/routes');
 // const routes = require('./server4_login/routes');
 // const routes = require('./server5_api/routes');
-const routes = require('./server6_1955/routes');
+// const routes = require('./server6_1955/routes');
+const routes = require('./server7_task/routes');
 
 
 const app = routes(express());

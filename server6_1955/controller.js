@@ -22,7 +22,7 @@ module.exports = {
         .catch(err=>{ res.json({error: 'database remove error'}); });
     },
 
-    name:(req,res)=>{
+    detail:(req,res)=>{
         Demo2.find({name:req.params.name})
         .then(data=>{ res.json(data); })
         .catch(err=>{ res.json({error: 'database find error'}); });
