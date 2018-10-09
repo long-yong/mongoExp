@@ -11,7 +11,9 @@
 <body>
 <div id="container2">
 
-    <h2><%=logger%>, welcome to quoting dojo</h2>
+    <h2 class='inline'> welcome <%=logger%> </h2>  <div class='wide80'></div>
+    <a href="/index"><button>All quotes</button></a><div class='wide5'></div>
+    <a href="/clear"><button>Clear</button></a><br>
 
     <% if(messages.errs) { %>
         <% for (let err of messages.errs) { %>
@@ -42,12 +44,12 @@
         
         <tr>
             <td></td> 
-            <td><a href="/index"><button>Index</button></a></td>
+            <td></td>
         </tr>
 
         <tr>
             <td></td> 
-            <td><a href="/clear"><button>Clear</button></a> </td>
+            <td> </td>
         </tr>
     
     </table>   

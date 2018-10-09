@@ -9,23 +9,35 @@
 </head>
 
 <body>
-<div id="container2">
+<div id="container3"> <br>
 
-    <h2>Welcome <%=logger%></h2>
+    Welcome <%=logger%> 
+    <div class='wide50'></div><a href="/index"><button>All users</button></a>
+    <div class='wide10'></div> <a href="/clear"><button>Clear</button></a>
 
-    <% if(messages.errs) { %>
-        <% for (let err of messages.errs) { %>
+    <div>
+    
+
+    <div id='boxleft'>
+
+        <h3>Register</h3>
+
+        <% if(messages.errs) { %>
+            <% for (let err of messages.errs) { %>
                 <%= err %><br>
-        <% } %>
-    <% } %>
+            <% } %>
+        <% } %> <div class='high5'></div>
 
-    <table>
-
-        <form action="/add" method="POST"> 
+        <table> <form action="/add" method="POST"> 
 
         <tr>
-            <td>Name: </td>
-            <td><input type="text" name="name"></td>
+            <td>First Name: </td>
+            <td><input type="text" name="first_name"></td>
+        </tr>
+
+        <tr>
+            <td>Last Name: </td>
+            <td><input type="text" name="last_name"></td>
         </tr>
 
         <tr>
@@ -34,23 +46,48 @@
         </tr>
 
         <tr>
-            <td></td> 
-            <td><button type="submit">Add</button></td>
-        </tr>
-
-        </form>
-        
-        <tr>
-            <td></td> 
-            <td><a href="/index"><button>Index</button></a></td>
+            <td>Birthday: </td>  
+            <td><input type="text" name="birthday"></td>
         </tr>
 
         <tr>
-            <td></td> 
-            <td><a href="/clear"><button>Clear</button></a> </td>
+            <td>Password: </td>
+            <td><input type="password" name="password"></td>
         </tr>
+
+        <tr>
+            <td>Passwordcmf: </td>
+            <td><input type="password" name="passwordcmf"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+
+        </form> </table>  
     
-    </table>   
+    </div>
+
+    <div id="boxright">
+        <h3>Login</h3>
+        <% if(messages.errs2) { %>
+            <% for (let err of messages.errs2) { %>
+                <%= err %><br>
+            <% } %>
+        <% } %> <div class='high5'></div>
+        
+        <form action="/login" method="POST"> 
+            Email:<br>
+            <input type="text" name="email"><br>
+            <div class='high5'></div>
+            Password:<br>
+            <input type="password" name="password"><br>
+            <div class='high5'></div>
+            <button type="submit">Submit</button>
+        </form> 
+
+    </div>
 
 </div>
 </body>

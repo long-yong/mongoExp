@@ -8,13 +8,13 @@
     <title>Login</title>
 </head>
 
-<body><div id="container2">
-
-    <h2 class="inline">Login</h2> <div class="wide200"></div> 
-    <a href="/add"><button>New user</button></a> <br>
+<body><div id="container3">
+    <h2 class="inline">All users</h2><div class="wide50"></div>
+    <a href="/add"><button>New user</button></a><div class="wide10" ></div>
+    <a href="/logout"><button>Logout</button></a><br>
 
     <% for(let user of allLogins) { %>
-        Name: <%=user.name%> &nbsp; Email: <%=user.email%> <br>
+        <%=user.first_name%> <%=user.last_name%> &nbsp; <%=user.email%> &nbsp; <%=user.birthday%> <br>
     <% } %>
 
 </div></body>

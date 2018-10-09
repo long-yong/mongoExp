@@ -18,6 +18,35 @@
     padding-left: 50px;
 }
 
+#container3 {
+    margin:10px;
+    width:600px;
+    height:480px;
+    border: 1px solid black;
+    line-height: 25px;
+    text-align: left;
+    padding-left: 30px;
+    vertical-align: top;
+}
+
+#boxleft {
+    width:300px;
+    border: 1px solid white;
+    line-height: 25px;
+    text-align: left;
+    display:inline-block;
+    vertical-align: top;
+}
+
+#boxright {
+    width:270px;
+    border: 1px solid white;
+    line-height: 25px;
+    text-align: left;
+    display:inline-block;
+    vertical-align: top;
+}
+
 .inline {
     display:inline-block;
 }
@@ -64,7 +93,7 @@
 .high80  { height: 80px; width: 10px; display: block; }
 .high100  { height:100px; width: 10px;display: block; }
 
-h1, h2 {
+h1, h2, h3 {
     color:red;
 }
 

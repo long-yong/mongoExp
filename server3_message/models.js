@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/test', {useNewUrlParser:true}, (errs)=>err
 
 
 const CommentSchema = new mongoose.Schema({
-    name:     {type: String, required: [true, "comment must with your name"]},
+    name:     {type: String, required: [true, "Comment must with your name"]},
     comment:  {type: String, required: [true, "Comment must have content"]},
 }, {timestamps: true})
 

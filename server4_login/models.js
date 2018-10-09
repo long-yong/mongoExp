@@ -7,19 +7,42 @@ mongoose.connect('mongodb://localhost/test', {useNewUrlParser:true},
 
 var LoginSchema = new mongoose.Schema({
 
-    name:{
+    first_name:{
         type:String,
         required:true,
-        minlength:2
+        minlength:1
     },
 
-    email:{
+    last_name:{
         type:String,
         required:true,
-        minlength:2
+        minlength:1
     },
 
-}, {timestamps:true} );
+    email: {
+        type: String,
+        lowercase: true,
+        unique: true,
+        required: 'Email is required'
+    },
+
+    birthday: {
+        type:String,
+        required:true,
+        minlength:1
+    },
+
+    password:{
+        type:String,
+        required:true,
+        minlength:1
+    },
+
+}, {timestamps:true});
+
+LoginSchema.path('email').validate(function (email) {
+    var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    return emailRegex.test(email);
+ }, 'Email must be valid')
 
 module.exports = mongoose.model('Login', LoginSchema);
-

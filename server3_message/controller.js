@@ -2,6 +2,10 @@
 
 const { Message, Comment, } = require('./models')
 
+function flash_err(req,err) {
+    for(var key in err.errors) req.flash('errs',err.errors[key].message);
+}
+
 module.exports = {
 
     add: (req,res)=>{
@@ -12,10 +16,7 @@ module.exports = {
 
     addMessage:(req,res)=>{
         Message.create(req.body,(err)=>{
-            if(err) {
-                for(var key in err.errors) { req.flash('errs',err.errors[key].message); }
-                res.redirect('/add');
-            } 
+            if(err) flash_err(req,err);
             res.redirect('/add');
         });
     },
@@ -23,9 +24,10 @@ module.exports = {
     addComment:(req,res)=>{
         Comment.create(req.body,(err,data)=>{
             if(err) {
-                for(var key in err.errors) { req.flash('errs',err.errors[key].message); }
+                flash_err(req,err); 
                 res.redirect('/add');
-            } else {
+            }
+            else {
                 Message.findOneAndUpdate({_id:req.params.mid},{$push:{comments:data}},(err)=>{
                     res.redirect('/add');
                 });

@@ -10,7 +10,6 @@ const express = require('express');
 const routes = require('./server4_login/routes');
 
 
-// listen 8000
 
 const app = routes(express());
 
