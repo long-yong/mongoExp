@@ -4,8 +4,14 @@ const { Task, } = require('./models')
 
 module.exports = {
 
-    index:(req,res)=>{
+    getall:(req,res)=>{
         Task.find({})
+        .then(data=>{ res.json(data); })
+        .catch(err=>{ res.json({error: 'database find error'}); });
+    },
+
+    getone:(req,res)=>{
+        Task.findById(req.params.id)
         .then(data=>{ res.json(data); })
         .catch(err=>{ res.json({error: 'database find error'}); });
     },
@@ -14,18 +20,6 @@ module.exports = {
         Task.create({title:req.params.title})
         .then(data=>{ res.json(data); })
         .catch(err=>{ res.json({error: 'database create error'}); });
-    },
-
-    remove:(req,res)=>{
-        Task.findByIdAndDelete(req.params.id)
-        .then(data=>{ res.json(data); })
-        .catch(err=>{ res.json({error: 'database remove error'}); });
-    },
-
-    detail:(req,res)=>{
-        Task.findById(req.params.id)
-        .then(data=>{ res.json(data); })
-        .catch(err=>{ res.json({error: 'database find error'}); });
     },
 
     update1:(req,res)=>{
@@ -44,6 +38,12 @@ module.exports = {
         Task.findByIdAndUpdate(req.params.id,{$set: {title:req.params.p1,description:req.params.p2,completed:req.params.p3}})
         .then(data=>{Task.findById(req.params.id).then(data=>{res.json(data);})})
         .catch(err=>{ res.json({error: 'database update error'}); });
+    },
+
+    delete:(req,res)=>{
+        Task.findByIdAndDelete(req.params.id)
+        .then(data=>{ res.json(data); })
+        .catch(err=>{ res.json({error: 'database remove error'}); });
     },
     
 };

@@ -17,18 +17,16 @@ module.exports = function(app) {
 
     // routes
 
-    app.get ('/',                       controller.index);
+    app.get ('/',                       controller.getall);
+    app.get ('/:id',                    controller.getone);
 
-    app.get ('/new/:title',             controller.new);
+    app.post ('/:title',                controller.new);
     
-    app.get ('/remove/:id',             controller.remove);
-    app.get ('/delete/:id',             controller.remove);
+    app.put ('/:id/:p1',                controller.update1);
+    app.put ('/:id/:p1/:p2',            controller.update2);
+    app.put ('/:id/:p1/:p2/:p3',        controller.update3);
 
-    app.get ('/update/:id/:p1',         controller.update1);
-    app.get ('/update/:id/:p1/:p2',     controller.update2);
-    app.get ('/update/:id/:p1/:p2/:p3', controller.update3);
-
-    app.get ('/:id',                    controller.detail);
+    app.delete('/:id',                  controller.delete);
 
     return app;
 }
