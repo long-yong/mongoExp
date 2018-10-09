@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Api</title>
+
+    <script>
+        $(document).ready(function() {
+            $('#getapi').click(function(){
+                $.get( '/api_',
+                        function(data) {
+                            console.log(data);
+                            var str='';  var arr=data.data;
+                            for(let i in arr) 
+                                str += arr[i].title + ' - '+ arr[i].name +'<br>';
+                            $('#api').html(str);
+                        },
+                        'json'
+                );
+            });
+        });
+    </script>
+
+</head>
+
+<body><div id="container2">
+
+    <h2 class="inline">API:</h2> <div class="wide120"></div> 
+    <a href="/index"><button>Go Back</button></a> <br>
+
+    <button id="getapi">Get API Data</button><br>
+	<p id='api'></p> <br>
+
+
+</div></body>
+</html>

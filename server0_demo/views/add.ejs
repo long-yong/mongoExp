@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" content-type="text/css" href="/css/style.css">
+    <title>Add</title>
+</head>
+
+<body>
+<div id="container2">
+
+    <h2 class='inline'> Welcome <%=logger%> </h2>  <div class='wide60'></div>
+    <a href="/index"><button>All Data</button></a><div class='wide5'></div>
+    <a href="/clear"><button>Clear</button></a><br>
+
+    <% if(messages.errs) { %>
+        <% for (let err of messages.errs) { %>
+                <%= err %><br>
+        <% } %>
+    <% } %>
+
+    <table>
+
+        <form action="/add" method="POST"> 
+
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>Title: </td>  
+            <td><input type="text" name="title"></td>
+        </tr>
+
+        <tr>
+            <td></td> 
+            <td><button type="submit">Add</button></td>
+        </tr>
+
+        </form>
+        
+        <tr>
+            <td></td> 
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td> 
+            <td> </td>
+        </tr>
+    
+    </table>   
+
+</div>
+</body>
+
+</html>
