@@ -17,15 +17,16 @@ module.exports = function(app) {
 
     // routes
 
-    app.get ('/',                   controller.index);
+    app.get ('/',                        controller.getall);
+    app.get ('/:id',                     controller.getone);
 
-    app.get ('/new/:name/:birthday',controller.new);
+    app.get ('/new/:title',              controller.new);
+    
+    app.get ('/update/:id/:p1',          controller.update1);
+    app.get ('/update/:id/:p1/:p2',      controller.update2);
+    app.get ('/update/:id/:p1/:p2/:p3',  controller.update3);
 
-    app.get ('/remove/:name',       controller.remove);
-
-    app.get ('/:name',               controller.name);
+    app.get('/delete/:id',               controller.delete);
 
     return app;
 }
-
-
