@@ -12,6 +12,12 @@
 
     <h2>API data:</h2>
 
+    <% if(messages.errs) { %>
+        <% for (let err of messages.errs) { %>
+            <%= err %><br>
+        <% } %>
+    <% } %>
+
     <% for(let task of allTasks) { %> 
         <%=task%><br>
     <% } %>

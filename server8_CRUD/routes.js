@@ -14,13 +14,13 @@ module.exports = function(app) {
     app.use(session({secret:'keyboardkitteeyong12345', resave:false, 
             saveUninitialized:true, cookie:{maxAge:60000}}));
     app.use(flash());
-
+    
     // routes
 
     app.get ('/',                        controller.getall);
     app.get ('/:id',                     controller.getone);
 
-    app.get ('/new/:title',              controller.new);
+    app.get ('/new/:p1',                 controller.new);
     
     app.get ('/update/:id/:p1',          controller.update1);
     app.get ('/update/:id/:p1/:p2',      controller.update2);
@@ -30,3 +30,4 @@ module.exports = function(app) {
 
     return app;
 }
+

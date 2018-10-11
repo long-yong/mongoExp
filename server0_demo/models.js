@@ -1,4 +1,4 @@
-// model_Quote.js
+// models.js
 
 const mongoose = require('mongoose');
 
